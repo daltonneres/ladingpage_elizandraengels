@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="videos.css">
 </head>
 <body>
 
@@ -20,7 +21,7 @@
   <div class="wrap header-inner">
     <a href="#topo" class="brand">
       <span class="brand-mark" aria-hidden="true">
-        <img src="file:///C:/Users/USER/Downloads/logo%20(3).png" alt="">
+        <img src="img/logo.png" alt="">
       </span>
       <span class="brand-text">
         <strong>Elizandra Engels</strong>
@@ -32,6 +33,7 @@
       <a href="#sobre">Sobre</a>
       <a href="#servicos">Serviços</a>
       <a href="#processo">Como funciona</a>
+      <a href="#portfolio">Portfólio</a>
       <a href="#contato">Contato</a>
     </nav>
  
@@ -78,6 +80,10 @@
  
       <div class="hero-frame" data-reveal="hero">
         <div class="viewfinder">
+          <video class="viewfinder-video" id="heroVideo" src="videos/hero1.mp4" poster="videos/hero-poster.jpg"
+                 data-playlist="videos/hero1.mp4,videos/hero2.mp4,videos/hero3.mp4"
+                 autoplay muted playsinline preload="metadata" aria-hidden="true"></video>
+
           <span class="corner tl"></span><span class="corner tr"></span>
           <span class="corner bl"></span><span class="corner br"></span>
  
@@ -86,15 +92,9 @@
             <span class="tc" id="timecode">00:00:00</span>
           </div>
  
-          <div class="viewfinder-center">
-            <svg viewBox="0 0 24 24" fill="none" class="play-icon" aria-hidden="true">
-              <circle cx="12" cy="12" r="10.2" stroke="currentColor" stroke-width="1.2"/>
-              <path d="M10 8.3L16 12l-6 3.7z" fill="currentColor"/>
-            </svg>
-          </div>
- 
           <div class="viewfinder-bottom">
             <span>Reel · vertical · 9:16</span>
+            <span class="hero-dots" id="heroDots" aria-hidden="true"><i class="is-on"></i><i></i><i></i></span>
             <span>@elizandraengels</span>
           </div>
         </div>
@@ -112,6 +112,7 @@
         <div class="about-photo-ph">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8.5" r="3.6" stroke="currentColor" stroke-width="1.3"/><path d="M4.8 20c1.2-3.8 4.1-5.8 7.2-5.8s6 2 7.2 5.8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
           <span>Foto da Elizandra aqui</span>
+          <img src="img/elizandra.jpg" alt="Elizandra Engels" onerror="this.remove()">
         </div>
       </div>
  
@@ -296,9 +297,26 @@
       </ol>
     </div>
   </section>
+
+  <!-- ============ PORTFÓLIO ============ -->
+  <section class="section section-alt" id="portfolio">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <h2>Trabalhos recentes</h2>
+        <p>Alguns Reels e vídeos que já produzi.</p>
+      </div>
+
+      <div class="video-grid" data-reveal>
+        <video src="videos/video1.mp4" poster="videos/poster1.jpg" controls playsinline preload="none"></video>
+        <video src="videos/video2.mp4" poster="videos/poster2.jpg" controls playsinline preload="none"></video>
+        <video src="videos/video3.mp4" poster="videos/poster3.jpg" controls playsinline preload="none"></video>
+        <video src="videos/video4.mp4" poster="videos/poster4.jpg" controls playsinline preload="none"></video>
+      </div>
+    </div>
+  </section>
  
   <!-- ============ DEPOIMENTOS ============ -->
-  <section class="section section-alt" id="depoimentos">
+  <section class="section" id="depoimentos">
     <div class="wrap">
       <div class="section-head" data-reveal>
         <h2>O que dizem os clientes</h2>
@@ -308,11 +326,11 @@
 
   <blockquote class="testimonial">
     <div class="testimonial-photo">
-      <!-- Quando tiver a foto, troque o <svg> por: <img src="cliente1.jpg" alt="Nome do cliente"> -->
+      <!-- Quando tiver a foto, troque o <svg> por: <img src="img/cliente1.jpg" alt="Nome do cliente"> -->
       <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8.5" r="3.6" stroke="currentColor" stroke-width="1.3"/><path d="M4.8 20c1.2-3.8 4.1-5.8 7.2-5.8s6 2 7.2 5.8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
     </div>
     <p>“Meu Instagram nunca teve tanto engajamento. Os vídeos ficaram muito mais profissionais.”</p>
-    Cliente, exemplo
+    <cite>Cliente, exemplo</cite>
   </blockquote>
 
   <blockquote class="testimonial">
@@ -320,7 +338,7 @@
       <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8.5" r="3.6" stroke="currentColor" stroke-width="1.3"/><path d="M4.8 20c1.2-3.8 4.1-5.8 7.2-5.8s6 2 7.2 5.8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
     </div>
     <p>“Deixei de me preocupar com conteúdo e vi meu perfil crescer de verdade.”</p>
-    Cliente, exemplo
+    <cite>Cliente, exemplo</cite>
   </blockquote>
 
   <blockquote class="testimonial">
@@ -328,10 +346,11 @@
       <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8.5" r="3.6" stroke="currentColor" stroke-width="1.3"/><path d="M4.8 20c1.2-3.8 4.1-5.8 7.2-5.8s6 2 7.2 5.8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
     </div>
     <p>“Atendimento rápido, entrega no prazo e o resultado apareceu já nas primeiras semanas.”</p>
-    Cliente, exemplo
+    <cite>Cliente, exemplo</cite>
   </blockquote>
 
 </div>
+    </div>
   </section>
  
   <!-- ============ CTA FINAL ============ -->
@@ -351,7 +370,7 @@
   <div class="wrap footer-grid">
     <div>
       <span class="brand-mark" aria-hidden="true">
-        <img src="logo-mark.png" alt="">
+        <img src="img/logo.png" alt="">
       </span>
       <p class="footer-about">Elizandra Engels — Social Media e Videomaker, ajudando negócios e autônomos a crescer com conteúdo em vídeo.</p>
     </div>
@@ -385,7 +404,7 @@
 </footer>
  
 <script src="script.js"></script>
+<script src="videos.js"></script>
  
 </body>
 </html>
- 
