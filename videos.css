@@ -1,7 +1,11 @@
-/* Vídeos — hero e portfólio */
+/* =========================================================
+   Elizandra Engels — estilos dos vídeos
+   (hero em sequência + seção Portfólio)
+   ========================================================= */
 
-/* hero: vídeo preenchendo o quadro vertical */
+/* ---------- Hero: vídeo preenchendo o quadro vertical ---------- */
 .viewfinder{ overflow: hidden; }
+
 .viewfinder-video{
   position: absolute;
   inset: 0;
@@ -10,6 +14,8 @@
   object-fit: cover;
   z-index: 0;
 }
+
+/* sombra em cima e embaixo pra o texto continuar legível */
 .viewfinder::after{
   content: "";
   position: absolute;
@@ -18,15 +24,28 @@
   pointer-events: none;
   background: linear-gradient(180deg, rgba(17,17,17,.55), transparent 28%, transparent 70%, rgba(17,17,17,.6));
 }
+
 .viewfinder-top, .viewfinder-bottom{ position: relative; z-index: 1; }
 .viewfinder .corner{ z-index: 2; }
 
-/* portfólio */
+/* bolinhas que mostram qual dos 3 vídeos está tocando */
+.hero-dots{ display: inline-flex; align-items: center; gap: 6px; }
+.hero-dots i{
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.35);
+  transition: background .3s, transform .3s;
+}
+.hero-dots i.is-on{ background: var(--accent); transform: scale(1.3); }
+
+/* ---------- Portfólio ---------- */
 .video-grid{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
+
 .video-grid video{
   width: 100%;
   aspect-ratio: 9 / 16;
@@ -35,14 +54,42 @@
   border: 1px solid var(--border);
   border-radius: 6px;
 }
-@media (max-width: 1080px){ .video-grid{ grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 560px){ .video-grid{ grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; } }
 
-/* indicador dos 3 vídeos do hero */
-.hero-dots{ display: inline-flex; align-items: center; gap: 6px; }
-.hero-dots i{ width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.35); transition: background .3s, transform .3s; }
-.hero-dots i.is-on{ background: var(--accent); transform: scale(1.3); }
+@media (max-width: 1080px){
+  .video-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px){
+  .video-grid{ grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+}
 
-/* foto da Elizandra (cobre o placeholder quando existir) */
+/* ---------- Foto da Elizandra (cobre o espaço quando existir) ---------- */
 .about-photo-ph{ position: relative; overflow: hidden; }
-.about-photo-ph img{ position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.about-photo-ph img{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* ---------- Celular: nome acima da foto ---------- */
+@media (max-width: 860px){
+  .about-grid{ display: flex; flex-direction: column; gap: 0; }
+  .about-copy{ display: contents; }
+
+  .about-copy .card-kicker{ order: 1; }
+  .about-copy h2{ order: 2; margin: 8px 0 24px; }
+  .about-photo{ order: 3; margin: 0 auto 32px; }
+  .about-copy > p,
+  .about-copy .about-pillars{ order: 4; }
+}
+/* ---------- Depoimentos: print da conversa ---------- */
+.testimonial-print{
+  width: 100%;
+  margin: 0 0 18px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.testimonial-print img{ width: 100%; height: auto; display: block; }
+.testimonial cite{ font-size: 0.95rem; font-weight: 600; color: var(--text); }
+.testimonial cite small{ display: block; font-weight: 400; font-size: 0.8rem; color: var(--muted-2); margin-top: 2px; }
