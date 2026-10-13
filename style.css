@@ -250,8 +250,8 @@ h1 em{ font-style: normal; color: var(--accent); }
 /* viewfinder / video-frame device */
 .hero-frame{ position: relative; }
 .viewfinder{
-  position: relative;
-  aspect-ratio: 4 / 5;
+ .hero-frame{ position: relative; width: 100%; max-width: 360px; margin-left: auto; }
+ aspect-ratio: 9 / 16;
   background:
     radial-gradient(120% 90% at 50% 15%, rgba(155,107,255,0.12), transparent 60%),
     linear-gradient(180deg, var(--panel), var(--panel-2));
